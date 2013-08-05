@@ -56,11 +56,16 @@ if ((typeof console !== 'undefined') && console.groupCollapsed) {
       }
       description += (Math.round(time * 100) / 100).toString() + "ms";
 
-      console.groupCollapsed(type + ": " + description);
-      this.children.forEach(function (c) {
-        c.log(type);
-      });
-      console.groupEnd();
+      if (this.children.length === 0) {
+        console.log(type + ": " + description);
+      } else {
+        // render a collapsed group when there are children
+        console.groupCollapsed(type + ": " + description);
+        this.children.forEach(function (c) {
+          c.log(type);
+        });
+        console.groupEnd();
+      }
     }
 
     // Set up our instrumentation of Ember below
