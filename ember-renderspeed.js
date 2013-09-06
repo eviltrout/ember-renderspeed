@@ -76,6 +76,9 @@ if ((typeof console !== 'undefined') && console.groupCollapsed && !window.QUnit)
       },
 
       after: function(name, timestamp, payload, profileNode) {
+        if (payload.exception) {
+          throw payload.exception;
+        }
 
         var parent = profileNode.parent;
         profileNode.time = (timestamp - profileNode.start);
