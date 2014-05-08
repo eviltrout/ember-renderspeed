@@ -78,7 +78,7 @@ if ((typeof console !== 'undefined') && console.groupCollapsed && !window.QUnit)
       after: function(name, timestamp, payload, profileNode) {
 
         if (payload.exception) {
-          throw payload.exception;
+          throw new Error(payload.exception);
         }
 
         profileNode.time = (timestamp - profileNode.start);
