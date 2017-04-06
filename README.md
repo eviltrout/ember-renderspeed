@@ -24,8 +24,8 @@ You can use it to figure out what bits of rendering are taking the longest.
 
 ### Ember-CLI
 
-ember-cli-build.js
-```
+```javascript
+// ember-cli-build.js
 if (app.env === 'development') {
   app.import('bower_components/ember-renderspeed/ember-renderspeed.js');
 }
